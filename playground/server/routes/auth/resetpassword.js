@@ -140,7 +140,7 @@ module.exports = () => {
          */
         await UserService.changePassword(req.params.userId, req.body.password);
         await UserService.deletePasswordResetToken(req.params.resetToken);
-        req.sesssion.messages.push({
+        req.session.messages.push({
           text: 'Your password was successfully changed!', 
           type: 'success',
         });
