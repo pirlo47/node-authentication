@@ -58,6 +58,13 @@ module.exports = () => {
         test: 'You are logged in',
         type: 'success', 
       }); 
+      //Implementing remember me 
+      if(req.body.remember ) {
+        req.sessionOptions.maxAge = 24 * 60 * 60 * 1000 * 14; //14 days in milliseconds
+        req.session.rememberme = req.sessionOptions.maxAge;  
+      } else {
+        req.session.rememberme = null; 
+      }
       return res.redirect('/'); 
     } catch (err) {
       return next(err);
@@ -69,7 +76,8 @@ module.exports = () => {
    * @todo: Implement
    */
   router.get('/logout', (req, res) => {
-    req.session.userId = null; 
+    req.session.userId = null;
+    req.session.rememberme = null;
     req.session.messages.push({
       text: 'You are logged out now!', 
       type: 'info',
