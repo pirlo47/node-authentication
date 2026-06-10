@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "bcrypt": "^6.0.0"
+    "bcrypt": "^6.0.0",
+    "connect-ensure-login": "^0.1.1"
   }
 }
