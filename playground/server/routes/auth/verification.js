@@ -17,9 +17,9 @@ module.exports = () => {
       const user = await UserService.findById(req.params.userId);
       if (!user || user.verificationToken !== req.params.token) {
         req.session.messages.push({
-          text: 'Invalid credentials provided!',
-          type: 'danger',
-        });
+          text: 'Invalid credentials provided!', 
+          type: 'danger', 
+        }); 
       } else {
         user.verified = true;
         await user.save();

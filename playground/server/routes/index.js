@@ -1,7 +1,5 @@
 const { Router } = require('express');
-
 const { ensureLoggedIn } = require('connect-ensure-login');
-
 const cors = require('cors');
 const authRouter = require('./auth');
 const apiRouter = require('./api');
